@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius, Influencer Digital</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        .typing-animation {
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+        }
+        .paragraph{
+            opacity: 1;
+            transition: 1s;
+        }
+        /* Estilo para galeria de imagens */
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .portfolio-item img {
+            transition: transform 0.3s ease-in-out;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio-item .portfolio-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            color: white;
+            transition: 0.5s ease;
+            opacity: 1;
+        }
+        .portfolio-item:hover .portfolio-info {
+            opacity: 1;
+        }
+        .portfolio-info h5 {
+            margin-bottom: 5px;
+        }
+        
+        .center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: white;
+}
+
+header {
+    position: relative;
+    background-image: url('imagens/perfil2.jpeg'); /* Substitua 'header-background.jpg' pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagens/perfil.jpeg'); /* Substitua 'header-background.jpg' pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transform: scale(1.1);
+    opacity: 1;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+}
+    .instagram-icon {
+        font-size: 24px; /* Tamanho do ícone */
+        color: #e4405f; /* Cor do Instagram (rosa) */
+        transition: 1s;
+    }
+    .instagram-icon:hover{
+        background:  #e4405f;
+        color: aliceblue;
+        transition: 1s;
+        border-radius: 20%;
+    }
+
+    .whatsapp-icon {
+        font-size: 24px; /* Tamanho do ícone */
+        color: #25d366; /* Cor do WhatsApp (verde) */
+        transition: 1s;
+    }
+    .whatsapp-icon:hover{
+        background:  #25d366;
+        color: aliceblue;
+        transition: 1s;
+        border-radius: 20%;
+    }
+    .facebook-icon{
+        font-size: 24px; /* Tamanho do ícone */
+        color: #1a6bdb;
+        transition: 1s;
+    }
+
+    .facebook-icon:hover{
+        background:#1a6bdb ;
+        color: aliceblue;
+        border-radius: 20%;
+    }
+    .portfolio-item .card-img {
+        height: 300px; /* Defina a altura fixa desejada */
+        object-fit: cover; /* Garante que a imagem preencha o espaço do card */
+    }
+    .contact-subsections {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.contact-subsection {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-subsection i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.contact-subsection h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-subsection p {
+  font-size: 14px;
+  color: #666;
+}
+.contact-subsections {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.contact-subsection {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-subsection i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.contact-subsection h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-subsection p {
+  font-size: 14px;
+  color: #666;
+}
+.contact-subsection:hover{
+    transition: 1s;
+    color: aliceblue;
+    background: #262525;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+  }
+  footer p {
+    margin: 5px 0;
+  }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="center">
+            <h1 id="typing-title"></h1>
+            <h2 id="typing-text" style="display: none;"></h2>
+            <br>
+            <a href="#portfolio" class="btn btn-primary">Conheça meu trabalho</a>
+        </div>
+    </header>
+    
+
+    <!-- Seção de Portfólio -->
+    <section id="portfolio" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Meu Portfólio</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="card bg-transparent border-0">
+                        <img src="imagens/img_portfolio1.jpeg" class="card-img" alt="Foto 1">
+                        <div class="portfolio-info">
+                            <h5>Representatividade de Marcas e Vendas</h5>
+                            <p>Colaboro para o crescimento dos negócios.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="card bg-transparent border-0">
+                        <img src="imagens/img_portfolio2.jpeg" class="card-img" alt="Foto 2">
+                        <div class="portfolio-info">
+                            <h5>Review de Produtos</h5>
+                            <p>Promovo a qualidade dos produtos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="card bg-transparent border-0">
+                        <img src="imagens/img_portfolio3.jpeg" class="card-img" alt="Foto 3">
+                        <div class="portfolio-info">
+                            <h5>Estratégias de Marketing</h5>
+                            <p>Maximizo sua visibilidade e atraio clientes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Adicione mais items de portfólio conforme necessário -->
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="why-hire" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Por que escolher meus serviços?</h2>
+            <div class="row" style="text-align: center;">
+                <div class="col-md-4">
+                    <div class="shape triangle"></div>
+                    <div class="feature">
+                        <i class="fas fa-bullhorn fa-3x animated bounce" style="margin: 30px; color: blue;"></i>
+                        <h3>Alcance Excepcional</h3>
+                        <p>Com uma base de mais de 2 milhões de seguidores, posso ampliar significativamente sua visibilidade online.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="shape rectangle"></div>
+                    <div class="feature">
+                        <i class="fas fa-heart fa-3x animated heartBeat" style="margin: 30px; color: red;"></i>
+                        <h3>Engajamento Sólido</h3>
+                        <p>Minha audiência é altamente engajada e apaixonada. Posso gerar conversas e interações significativas em torno da sua marca.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="shape square"></div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line fa-3x animated pulse" style="margin: 30px; color: green;"></i>
+                        <h3>Resultados Comprovados</h3>
+                        <p>Minhas parcerias anteriores têm demonstrado consistentemente aumento nas vendas e reconhecimento da marca para meus clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="clientes-parceiros" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Clientes e Parceiros Satisfeitos</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/cliente1.jpeg" class="card-img-top img-thumbnail" alt="Imagem Cliente 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Cliente 1 <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span></h5>
+                            <p class="card-text">"Excelente serviço prestado! Aumentamos nossas vendas significativamente desde que começamos a trabalhar juntos."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/cliente2.jpeg" class="card-img-top img-thumbnail" alt="Imagem Cliente 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Cliente 2 <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span></h5>
+                            <p class="card-text">"Estamos muito felizes com os resultados obtidos. Recomendamos a todos!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/cliente3.jpeg" class="card-img-top img-thumbnail" alt="Imagem Parceiro 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Parceiro 1 <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span></h5>
+                            <p class="card-text">"Trabalhar com essa equipe foi uma experiência incrível. Altamente profissionais e dedicados ao sucesso de seus clientes."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Adicione mais cards para outros clientes e parceiros -->
+        </div>
+    </section>
+    
+    <section class="contact-section" style="text-align: center;">
+        <h2>Entre em contato</h2>
+        <div class="contact-subsections">
+          <div class="contact-subsection">
+            <i class="fas fa-briefcase"></i>
+            <h3>Quero contratar o seu serviço</h3>
+            <p>Entre em contato para discutir os detalhes do serviço que deseja contratar.</p>
+          </div>
+          <div class="contact-subsection">
+            <i class="fas fa-handshake"></i>
+            <h3>Parceria com a sua marca</h3>
+            <p>Estamos abertos a parcerias que possam beneficiar ambas as marcas. Vamos conversar?</p>
+          </div>
+          <div class="contact-subsection">
+            <i class="fas fa-envelope"></i>
+            <h3>Envie sua proposta</h3>
+            <p>Tem uma proposta interessante para nossa marca? Envie-nos sua proposta para avaliação.</p>
+          </div>
+        </div>
+        <ul class="list-inline" style="margin-top: 30px;">
+            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram instagram-icon"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook facebook-icon"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp whatsapp-icon"></i></a></li>
+        </ul>
+      </section>
+      
+      
+        
+      <footer>
+        <p>&copy; 2024 TiagoCordeiro. Todos os direitos reservados.</p>
+        <p>Contato: contato@seudomínio.com</p>
+        <p>Endereço: Rua Exemplo, 123 - Cidade - Estado</p>
+        <p>Desenvolvido por:<a href="https://wa.me/5531995847007?text=Ol%C3%A1%2C%20tudo%20bem%3F"> Tiago Cordeiro</a></p>
+      </footer>
+    
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Texto a ser digitado
+        var text = "Vinicius, Influencer Digital";
+        var paragraphText = "Compartilhando dicas, tendências e muito mais!";
+
+        // Elementos onde o texto será mostrado
+        var target = document.getElementById("typing-text");
+        var targetParagraph = document.getElementById("paragraph");
+
+        // Função para simular digitação
+        function typeWriter(titleElement, textElement, titleText, text, i) {
+            if (i < titleText.length) {
+                titleElement.innerHTML += titleText.charAt(i);
+                i++;
+                setTimeout(function() {
+                    typeWriter(titleElement, textElement, titleText, text, i);
+                }, 100); // Velocidade da digitação (100 milissegundos)
+            } else if (i < text.length) {
+                if (text.charAt(i) === '\n') {
+                    textElement.innerHTML += '<br>';
+                } else {
+                    textElement.innerHTML += text.charAt(i);
+                }
+                i++;
+                setTimeout(function() {
+                    typeWriter(titleElement, textElement, titleText, text, i);
+                }, 100); // Velocidade da digitação (100 milissegundos)
+            }
+        }
+
+        // Elementos onde o texto será mostrado
+        var titleElement = document.getElementById("typing-title");
+        var textElement = document.getElementById("typing-text");
+
+        // Texto a ser digitado
+        var titleText = "Olá eu sou o Vinicius e sou Influencer Digital";
+        var paragraphText = "Compartilhando dicas,tendências e muito mais!";
+
+        // Iniciar a animação de digitação para o título
+        typeWriter(titleElement, textElement, titleText, paragraphText, 0);
+
+        // Adicionando intervalo para a animação ser executada a cada 4 segundos
+        setInterval(function() {
+            titleElement.innerHTML = '';
+            textElement.innerHTML = '';
+            typeWriter(titleElement, textElement, titleText, paragraphText, 0);
+        }, 10000); // 4 segundos
+    </script>
+</body>
+</html>
