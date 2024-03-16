@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
+        html{
+            scroll-behavior: smooth;
+        }
         .typing-animation {
             color: white;
             overflow: hidden;
@@ -190,6 +193,7 @@ header::before {
     cursor: pointer;
 }
 
+
 footer {
     background-color: #333;
     color: #fff;
@@ -205,7 +209,7 @@ footer {
     </style>
 </head>
 <body>
-    <header>
+    <header style="background-image: url('imagens/perfil2.jpeg'); background-size: cover; background-position: center; overflow: hidden; height: 100vh; padding-top: 100px; background-attachment: fixed;">
         <div class="center">
             <h1 id="typing-title"></h1>
             <h2 id="typing-text" style="display: none;"></h2>
@@ -214,9 +218,10 @@ footer {
         </div>
     </header>
     
+    
 
     <!-- Seção de Portfólio -->
-    <section id="portfolio" class="py-5">
+    <section id="portfolio" class="py-5" >
         <div class="container">
             <h2 class="text-center">Meu Portfólio</h2>
             <div class="row">
@@ -407,6 +412,8 @@ footer {
             textElement.innerHTML = '';
             typeWriter(titleElement, textElement, titleText, paragraphText, 0);
         }, 10000); // 4 segundos
+
+        
     </script>
 </body>
 </html>
